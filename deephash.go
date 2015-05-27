@@ -47,8 +47,7 @@ func deepHash(src reflect.Value, visited map[uintptr]*visit, depth int) []byte {
 		t := src.Type()
 		for i, n := 0, t.NumField(); i < n; i++ {
 			// check field tags
-			tag := t.Field(i).Tag.Get("hash")
-			fmt.Errorf("tag: %s", tag)
+			tag := t.Field(i).Tag.Get("msgpack")
 			if tag == "-" {
 				continue
 			}
